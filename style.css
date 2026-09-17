@@ -73,6 +73,7 @@
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background-color: var(--bg);
   /* خلفية هادئة ثلاثية الأبعاد بلمسات فيزياء راقية */
   background-image: 
@@ -1546,5 +1547,98 @@ tr:hover td {
   }
   .student-dashboard-hero {
     padding: 24px 20px;
+  }
+
+  .student-profile-info {
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+    width: 100%;
+  }
+  .student-large-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    font-size: 2.1rem;
+    flex: 0 0 auto;
+  }
+  .student-details {
+    min-width: 0;
+    flex: 1;
+  }
+  .student-details h1 {
+    font-size: 1.55rem;
+    overflow-wrap: anywhere;
+  }
+  .student-badges {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .pill-badge {
+    max-width: 100%;
+    width: fit-content;
+    overflow-wrap: anywhere;
+  }
+  .student-hero-content > div:last-child {
+    width: 100%;
+  }
+  .student-hero-content > div:last-child .btn {
+    width: 100%;
+  }
+  .month-selector-bar {
+    margin-inline: -4px;
+    padding-inline: 4px;
+  }
+  .dashboard-kpi-grid {
+    gap: 12px;
+  }
+  .kpi-card {
+    padding: 18px;
+  }
+  .exam-materials-card,
+  .payment-status-card {
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+  .pdf-download-box {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 18px;
+  }
+  .pdf-box-info {
+    align-items: flex-start;
+    min-width: 0;
+  }
+  .pdf-box-text {
+    min-width: 0;
+  }
+  .pdf-box-text strong,
+  .pdf-box-text small {
+    overflow-wrap: anywhere;
+  }
+  .pdf-download-box .btn {
+    width: 100%;
+  }
+  .payment-banner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  .payment-banner-info {
+    align-items: flex-start;
+    min-width: 0;
+  }
+  .payment-banner-text {
+    min-width: 0;
+  }
+  .payment-banner-text strong,
+  .payment-banner-text small {
+    overflow-wrap: anywhere;
+  }
+  .breakdown-legend {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
   }
 }
