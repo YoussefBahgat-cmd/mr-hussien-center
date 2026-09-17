@@ -5,6 +5,48 @@ const monthKey = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-01`;
 };
 
+function requestSupervisorPin() {
+  return new Promise(resolve => {
+    const modal = document.createElement('div');
+    modal.className = 'auth-modal-backdrop';
+    modal.innerHTML = `
+      <div class="auth-card">
+        <div class="auth-icon">🔒</div>
+        <h2>عرض ملف الطالب</h2>
+        <p>أدخل الرقم السري الخاص بالمشرف لعرض بيانات الطالب.</p>
+        <form class="auth-form">
+          <input type="password" id="studentProfilePin" placeholder="الرقم السري للمشرف" maxlength="20" autocomplete="current-password" autofocus>
+          <p class="auth-error hidden">الرقم السري غير صحيح.</p>
+          <div class="auth-actions">
+            <button type="submit" class="btn primary">🔓 متابعة</button>
+            <button type="button" class="btn outline cancel-pin-btn">إلغاء</button>
+          </div>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(modal);
+    const form = modal.querySelector('form');
+    const input = modal.querySelector('#studentProfilePin');
+    const error = modal.querySelector('.auth-error');
+    const close = result => {
+      modal.remove();
+      resolve(result);
+    };
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      if (window.AuthGuard && window.AuthGuard.checkPin(input.value)) {
+        close(true);
+      } else {
+        error.classList.remove('hidden');
+        input.value = '';
+        input.focus();
+      }
+    });
+    modal.querySelector('.cancel-pin-btn').addEventListener('click', () => close(false));
+    input.focus();
+  });
+}
+
 async function loadTopStudents() {
   const currentMonth = monthKey();
   const podiumEl = document.querySelector('#podium');
@@ -160,12 +202,21 @@ async function loadTopStudents() {
         <td>${s.avgExam}% <small class="muted">(${s.examsCount} امتحانات)</small></td>
         <td><b class="payment-paid" style="font-size:1.1rem">${s.totalScore}%</b></td>
         <td>
-          <a class="btn outline tiny" href="student-portal.html?code=${encodeURIComponent(s.student_id)}">
+          <a class="btn outline tiny student-profile-link" href="student-portal.html?code=${encodeURIComponent(s.student_id)}">
             عرض الملف 🎒
           </a>
         </td>
       </tr>
     `).join('');
+
+    tableBody.querySelectorAll('.student-profile-link').forEach(link => {
+      link.addEventListener('click', async event => {
+        event.preventDefault();
+        if (!await requestSupervisorPin()) return;
+        sessionStorage.setItem('student_profile_access_granted', '1');
+        window.location.href = link.href;
+      });
+    });
 
   } catch (err) {
     console.error(err);

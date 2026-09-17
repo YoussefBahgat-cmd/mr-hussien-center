@@ -340,8 +340,8 @@ function render(selectedMonth) {
           </div>
         </div>
         ${exams.length ? `
-          <div class="table-wrap">
-            <table>
+          <div class="table-wrap student-results-table-wrap">
+            <table class="student-results-table">
               <thead>
                 <tr>
                   <th>الاختبار</th>
@@ -357,14 +357,14 @@ function render(selectedMonth) {
                   const badge = getGradeBadge(perc);
                   return `
                     <tr>
-                      <td>
+                      <td data-label="الاختبار">
                         <strong>${safe(x.title)}</strong><br>
                         <small class="muted">${x.exam_type === 'monthly' ? 'امتحان شهري رئيسي' : 'اختبار أسبوعي / كويز'}</small>
                       </td>
-                      <td>${new Date(x.exam_date).toLocaleDateString('ar-EG')}</td>
-                      <td><b>${x.score} / ${x.max_score}</b></td>
-                      <td><b>${perc}%</b></td>
-                      <td>
+                      <td data-label="التاريخ">${new Date(x.exam_date).toLocaleDateString('ar-EG')}</td>
+                      <td data-label="الدرجة"><b>${x.score} / ${x.max_score}</b></td>
+                      <td data-label="النسبة"><b>${perc}%</b></td>
+                      <td data-label="التقدير">
                         <span class="badge" style="background:${badge.bg};color:${badge.color};font-weight:700">
                           ${badge.text}
                         </span>
@@ -391,15 +391,15 @@ function render(selectedMonth) {
           </div>
         </div>
 
-        <div class="payment-row">
+        <div class="payment-row evaluation-row">
           <span>حضور الحصص (50%)</span>
           <b>${Math.round(current.presence)}% (${current.att}/${current.sessions} حصص)</b>
         </div>
-        <div class="payment-row">
+        <div class="payment-row evaluation-row">
           <span>متوسط الاختبارات (50%)</span>
           <b>${Math.round(current.avg)}% (${current.count} اختبار)</b>
         </div>
-        <div class="payment-row" style="border-top:2px solid var(--line);margin-top:10px;padding-top:14px;">
+        <div class="payment-row evaluation-row evaluation-total-row" style="border-top:2px solid var(--line);margin-top:10px;padding-top:14px;">
           <span style="font-weight:800">التقييم النهائي للشهر</span>
           <b class="payment-paid" style="font-size:1.35rem;font-weight:800">${current.score}%</b>
         </div>
@@ -554,8 +554,11 @@ window.addEventListener('DOMContentLoaded', () => {
   const codeParam = new URLSearchParams(location.search).get('code');
   const savedCode = localStorage.getItem('remembered_student_code');
 
-  if (codeParam) {
+  if (codeParam && sessionStorage.getItem('student_profile_access_granted') === '1') {
+    sessionStorage.removeItem('student_profile_access_granted');
     loadStudent(codeParam);
+  } else if (codeParam) {
+    showError('لأمان بيانات الطلاب، يلزم إدخال الرقم السري للمشرف من لوحة الشرف أولاً.');
   } else if (savedCode) {
     loadStudent(savedCode);
   }
