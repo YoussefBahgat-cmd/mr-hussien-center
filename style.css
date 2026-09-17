@@ -126,21 +126,21 @@ body {
 .brand-group {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 9px;
 }
 
 .sidebar-toggle-btn {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   cursor: pointer;
   transition: all 0.25s ease;
   padding: 0;
@@ -154,8 +154,8 @@ body {
 
 .hamburger-bar {
   display: block;
-  width: 20px;
-  height: 2px;
+  width: 17px;
+  height: 1.5px;
   background-color: #fff;
   border-radius: 2px;
   transition: 0.2s;
@@ -164,22 +164,22 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 9px;
   color: white;
   text-decoration: none;
   font-weight: 900;
-  font-size: 1.22rem;
+  font-size: 1.08rem;
 }
 
 .brand-mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(99, 102, 241, 0.45));
   border: 1px solid rgba(255, 255, 255, 0.25);
   display: grid;
   place-items: center;
-  font-size: 1.55rem;
+  font-size: 1.25rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
@@ -220,7 +220,7 @@ body {
 .header-tools {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 /* زر التبديل بين الدارك والفاتح (Dark / Light Switcher) */
@@ -250,6 +250,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.22) !important;
   font-weight: 700;
   border-radius: 10px;
+  padding: 5px 9px;
+  font-size: 0.75rem;
 }
 
 .sidebar-quick-btn:hover {
