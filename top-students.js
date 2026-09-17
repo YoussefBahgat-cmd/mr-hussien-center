@@ -95,7 +95,10 @@ async function loadTopStudents() {
           <div class="podium-medal">🥈</div>
           <span class="badge">المركز الثاني</span>
           <h3>${second.student_name}</h3>
-          <p class="muted">${second.student_group} · ${second.student_id}</p>
+          <div class="podium-details">
+            <span>المجموعة: <strong>${second.student_group}</strong></span>
+            <span>التقدير: <strong>${second.totalScore}%</strong></span>
+          </div>
           <div class="podium-score">${second.totalScore}%</div>
           <small class="hint">حضور: ${second.presenceRate}% | امتحانات: ${second.avgExam}%</small>
         </div>
@@ -111,7 +114,10 @@ async function loadTopStudents() {
           <div class="podium-medal">🥇</div>
           <span class="badge" style="background:#fff3c4;color:#b7791f">🏆 المركز الأول</span>
           <h3>${first.student_name}</h3>
-          <p class="muted">${first.student_group} · ${first.student_id}</p>
+          <div class="podium-details">
+            <span>المجموعة: <strong>${first.student_group}</strong></span>
+            <span>التقدير: <strong>${first.totalScore}%</strong></span>
+          </div>
           <div class="podium-score" style="color:#d97706">${first.totalScore}%</div>
           <small class="hint">حضور: ${first.presenceRate}% | امتحانات: ${first.avgExam}%</small>
         </div>
@@ -125,7 +131,10 @@ async function loadTopStudents() {
           <div class="podium-medal">🥉</div>
           <span class="badge">المركز الثالث</span>
           <h3>${third.student_name}</h3>
-          <p class="muted">${third.student_group} · ${third.student_id}</p>
+          <div class="podium-details">
+            <span>المجموعة: <strong>${third.student_group}</strong></span>
+            <span>التقدير: <strong>${third.totalScore}%</strong></span>
+          </div>
           <div class="podium-score">${third.totalScore}%</div>
           <small class="hint">حضور: ${third.presenceRate}% | امتحانات: ${third.avgExam}%</small>
         </div>
@@ -140,7 +149,7 @@ async function loadTopStudents() {
     const medals = ['🥇 الأول', '🥈 الثاني', '🥉 الثالث', 'الرابع', 'الخامس', 'السادس', 'السابع', 'الثامن', 'التاسع', 'العاشر'];
 
     tableBody.innerHTML = top10.map((s, index) => `
-      <tr style="${index < 3 ? 'font-weight:600;background:#fcfdff;' : ''}">
+      <tr class="${index < 3 ? 'top-rank-row' : ''}">
         <td>
           <span class="rank-badge" style="${index === 0 ? 'background:#fef3c7;color:#b45309;' : index === 1 ? 'background:#e2e8f0;color:#334155;' : index === 2 ? 'background:#ffedd5;color:#c2410c;' : ''}">
             ${index + 1}

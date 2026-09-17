@@ -1195,6 +1195,15 @@ td {
   font-size: 0.94rem;
 }
 
+.top-rank-row {
+  font-weight: 700;
+}
+
+.top-rank-row td {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
 tr:hover td {
   background: var(--surface-hover);
 }
@@ -1493,6 +1502,18 @@ tr:hover td {
     padding: 24px;
     flex-direction: column;
     align-items: flex-start;
+  }
+  .card {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+  .table-wrap {
+    margin-inline: -4px;
+    max-width: calc(100% + 8px);
+  }
+  th, td {
+    padding: 12px 14px;
+    white-space: nowrap;
   }
   .quick-grid {
     grid-template-columns: 1fr 1fr;
