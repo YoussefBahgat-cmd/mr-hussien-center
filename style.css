@@ -169,6 +169,11 @@ body {
   text-decoration: none;
   font-weight: 900;
   font-size: 1.08rem;
+  white-space: nowrap;
+}
+
+.brand > div {
+  white-space: nowrap;
 }
 
 .brand-mark {
@@ -221,6 +226,14 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
+}
+
+#adminLoginBtn,
+#logoutAdminBtn {
+  white-space: nowrap;
+  padding-inline: 8px;
+  font-size: 0.72rem;
 }
 
 /* زر التبديل بين الدارك والفاتح (Dark / Light Switcher) */
@@ -1484,6 +1497,37 @@ tr:hover td {
 @media (max-width: 760px) {
   .wrap {
     padding: 0 16px;
+  }
+  .brand-row {
+    gap: 4px;
+  }
+  .brand-group {
+    gap: 5px;
+    min-width: 0;
+  }
+  .sidebar-toggle-btn {
+    width: 32px;
+    height: 32px;
+  }
+  .hamburger-bar {
+    width: 15px;
+  }
+  .brand {
+    gap: 5px;
+    font-size: 0.88rem;
+  }
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+  .brand small {
+    font-size: 0.6rem !important;
+  }
+  #adminLoginBtn,
+  #logoutAdminBtn {
+    padding-inline: 5px;
+    font-size: 0.62rem;
   }
   .topbar {
     padding: 12px 0;

@@ -59,9 +59,6 @@
           ${headbarLinks}
         </nav>
         <div class="header-tools">
-          <button id="sidebarQuickBtn" class="btn outline tiny sidebar-quick-btn">
-            ☰ كل الصفحات
-          </button>
           ${isAdmin ? `
             <button id="logoutAdminBtn" class="btn danger tiny" title="قفل الإدارة">
               🔒 خروج المشرف
