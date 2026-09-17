@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>تعديل طالب | سنتر مستر حسين</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="https://unpkg.com/html5-qrcode" defer></script>
+  <script src="auth-guard.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="edit_student.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <!-- يتم إدراجه عبر nav.js تلقائياً -->
+    </header>
+
+    <main class="wrap page">
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">STUDENT EDITOR</span>
+          <h1>تعديل بيانات الطالب</h1>
+          <p>ابحث بالاسم أو الكود، أو امسح بطاقة QR مباشرة.</p>
+        </div>
+      </div>
+
+      <section class="card">
+        <div class="scanner-layout">
+          <div class="scanner-box">
+            <div id="qrReader"></div>
+          </div>
+          <div>
+            <h2>البحث عن الطالب</h2>
+            <div class="input-row">
+              <input id="searchInput" placeholder="كود الطالب أو اسمه">
+              <button id="searchBtn" class="btn primary">بحث</button>
+            </div>
+            <p class="hint">يمكنك فتح هذه الشاشة من زر “تعديل” في إدارة الطلاب.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="editSection" class="card spaced hidden">
+        <form id="editForm" class="form">
+          <h2>تعديل البيانات الحالية</h2>
+          <input id="editRowId" type="hidden">
+          <label>كود الطالب<input id="editStudentCode" readonly></label>
+          <label>اسم الطالب<input id="editStudentName" required></label>
+          <label class="wide-field">المجموعة<select id="editStudentGroup" required></select></label>
+          <button class="btn success">✓ حفظ التعديلات</button>
+        </form>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

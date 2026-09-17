@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>منصة الطالب | سنتر مستر حسين</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/html5-qrcode" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="auth-guard.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="exam-store.js" defer></script>
+  <script src="student-portal.js" defer></script>
+  <style>
+    .portal-scan-card {
+      max-width: 540px;
+      margin: 30px auto;
+      text-align: center;
+      padding: 36px 24px;
+    }
+    .scan-icon-large {
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .scanner-box {
+      background: #f8f9fd;
+      border: 2px dashed #cbd5e1;
+      border-radius: 18px;
+      padding: 14px;
+      margin-top: 20px;
+    }
+    #reader {
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .privacy-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eff6ff;
+      color: #1e40af;
+      padding: 6px 14px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <!-- يتم تهيئته تلقائياً وبشكل آمن عبر nav.js -->
+    </header>
+
+    <main class="wrap page">
+      <!-- بطاقة مسح الـ QR الحصرية (بدون أي خانة إدخال يدوي لحماية الخصوصية) -->
+      <div id="portalScannerSection" class="card portal-scan-card">
+        <span class="scan-icon-large">📷</span>
+        <span class="eyebrow" style="display:block">STUDENT ACCESS</span>
+        <h1 style="font-size: 1.6rem; margin: 6px 0 8px;">منصة الطالب وولي الأمر</h1>
+        <p class="muted" style="margin: 0 0 16px;">
+          امسح كارت الطالب الشخصي (QR Code) للاطلاع على سجل الحضور، درجات الاختبارات، وحالة الدفع ونماذج الامتحانات.
+        </p>
+
+        <span class="privacy-notice">
+          🔒 حفاظاً على الخصوصية: الدخول متاح فقط عبر مسح البطاقة الشخصية.
+        </span>
+
+        <div style="margin-top: 24px;">
+          <button id="startScanBtn" class="btn primary" style="font-size: 1rem; padding: 13px 26px;">
+            📷 فتح الكاميرا لمسح الكارت
+          </button>
+        </div>
+
+        <!-- منطقة ظهور الكاميرا عند الضغط -->
+        <div id="scannerContainer" class="scanner-box hidden">
+          <div id="reader"></div>
+          <p class="hint" style="margin-top: 10px;">وجه الكاميرا نحو كود QR على بطاقة الطالب</p>
+          <button id="stopScanBtn" class="btn danger tiny" type="button" style="margin-top: 8px;">
+            إلغاء المسح ✕
+          </button>
+        </div>
+
+        <p id="portalErrorMsg" class="message error hidden" style="margin-top: 16px;"></p>
+      </div>
+
+      <!-- محتوى منصة الطالب وداشبورد المتابعة -->
+      <div id="portalContent" class="hidden"></div>
+    </main>
+  </div>
+</body>
+</html>

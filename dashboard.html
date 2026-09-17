@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>لوحة التحكم | سنتر مستر حسين</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="auth-guard.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <!-- يتم إدراجه عبر nav.js تلقائياً -->
+    </header>
+
+    <main class="wrap page">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">CENTER OVERVIEW</span>
+          <h1>أهلًا بك في لوحة التحكم</h1>
+          <p>راقب حركة السنتر اليومية وحمّل التقارير في أي وقت.</p>
+        </div>
+        <div class="hero-icon">📊</div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat">
+          <span>إجمالي الطلاب</span>
+          <b id="totalStudentsCount">—</b>
+        </article>
+        <article class="stat teal">
+          <span>حضور اليوم</span>
+          <b id="todayAttendanceCount">—</b>
+        </article>
+        <article class="stat orange">
+          <span>مدفوعات الشهر الحالي</span>
+          <b id="paidStudentsCount">—</b>
+        </article>
+      </div>
+
+      <div class="quick-grid" style="grid-template-columns:repeat(4,1fr);">
+        <a class="quick" href="index.html">
+          📷<b>تسجيل حضور</b>
+          <small>QR أو بحث بالكود</small>
+        </a>
+        <a class="quick" href="students.html">
+          👥<b>إدارة الطلاب</b>
+          <small>إضافة وتصدير وتعديل</small>
+        </a>
+        <a class="quick" href="exam-results.html">
+          📝<b>امتحانات الشهر</b>
+          <small>رفع PDF ورصد الدرجات</small>
+        </a>
+        <a class="quick" href="top-students.html">
+          🏆<b>لوحة الشرف</b>
+          <small>العشرة الأوائل</small>
+        </a>
+      </div>
+
+      <section class="card">
+        <div class="section-title">
+          <div>
+            <h2>التقارير</h2>
+            <p class="hint">ملفات Excel جاهزة للطباعة والمراجعة.</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="exportAttendanceBtn" class="btn success">📊 تصدير حضور اليوم</button>
+          <button id="exportPaymentsBtn" class="btn primary">💰 تقرير المدفوعات</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

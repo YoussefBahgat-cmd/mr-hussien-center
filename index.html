@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>تسجيل الحضور | سنتر مستر حسين</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/html5-qrcode" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="auth-guard.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="attendance.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <!-- يتم إدراجه عبر nav.js تلقائياً -->
+    </header>
+
+    <main class="wrap page">
+      <div class="page-head">
+        <div>
+          <span class="eyebrow">DAILY CHECK-IN</span>
+          <h1>تسجيل الحضور</h1>
+          <p>امسح بطاقة الطالب أو اكتب كوده، ثم سجّل الحضور والدفع من شاشة واحدة.</p>
+        </div>
+        <button id="clearAttendanceBtn" class="btn danger">🗑️ بدء يوم جديد</button>
+      </div>
+
+      <section class="card">
+        <div class="scanner-layout">
+          <div class="scanner-box">
+            <div id="qrReader"></div>
+            <p class="hint">اسمح باستخدام الكاميرا لمسح QR.</p>
+          </div>
+          <div>
+            <h2>بحث سريع</h2>
+            <div class="input-row">
+              <input id="studentIdInput" placeholder="مثال: STUD-001">
+              <button id="scanBtn" class="btn primary">بحث</button>
+            </div>
+            <div id="studentInfo" class="hidden">
+              <article class="student-card">
+                <div class="card-top">
+                  <div>
+                    <h2 id="studentName">اسم الطالب</h2>
+                    <span id="statusBadge" class="badge">جاهز للتسجيل</span>
+                  </div>
+                  <span class="avatar">👨‍🎓</span>
+                </div>
+                <div class="info-grid">
+                  <div>
+                    <small>رقم الطالب</small>
+                    <strong id="studentId">—</strong>
+                  </div>
+                  <div>
+                    <small>المجموعة</small>
+                    <strong id="studentGroup">—</strong>
+                  </div>
+                  <div class="wide">
+                    <small>حالة الدفع لشهر <span id="currentMonthLabel"></span></small>
+                    <strong id="paymentStatusText">—</strong>
+                  </div>
+                </div>
+              </article>
+              <div class="actions">
+                <button id="payAndAttendBtn" class="btn success">💳 دفع وتسجيل حضور</button>
+                <button id="attendanceOnlyBtn" class="btn secondary">✓ تسجيل حضور فقط</button>
+                <a id="portalLink" class="btn outline" href="#">منصة الطالب</a>
+              </div>
+            </div>
+            <p id="message" class="message hidden"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

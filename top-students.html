@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>لوحة الشرف للأوائل 🏆 | سنتر مستر حسين</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="config.js" defer></script>
+  <script src="auth-guard.js" defer></script>
+  <script src="nav.js" defer></script>
+  <script src="top-students.js" defer></script>
+  <style>
+    .podium-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr 1fr;
+      gap: 16px;
+      align-items: flex-end;
+      margin-bottom: 30px;
+    }
+    .podium-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px 18px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      transition: transform 0.2s;
+    }
+    .podium-card:hover { transform: translateY(-4px); }
+    .podium-card.first {
+      background: linear-gradient(135deg, #fff9e6, #fff);
+      border-color: #ffd166;
+      transform: scale(1.05);
+      z-index: 2;
+    }
+    .podium-card.first:hover { transform: scale(1.08) translateY(-4px); }
+    .podium-card.second {
+      background: linear-gradient(135deg, #f4f6fb, #fff);
+      border-color: #cbd5e1;
+    }
+    .podium-card.third {
+      background: linear-gradient(135deg, #fef6ee, #fff);
+      border-color: #fbd38d;
+    }
+    .podium-medal {
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+    .podium-card h3 {
+      font-size: 1.15rem;
+      margin: 8px 0 4px;
+      font-weight: 800;
+    }
+    .podium-score {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+    .rank-badge {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      border-radius: 50%;
+      background: #eff0ff;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+    @media(max-width: 760px) {
+      .podium-grid {
+        grid-template-columns: 1fr;
+      }
+      .podium-card.first { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <!-- يتم تهيئته عبر nav.js -->
+    </header>
+
+    <main class="wrap page">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">HONOR BOARD</span>
+          <h1>لوحة شرف الأوائل 🏆</h1>
+          <p>ترتيب الطلاب المتميزين وفق معادلة التقييم المعتمدة: 50% حضور الحصص + 50% متوسط درجات الامتحانات.</p>
+        </div>
+        <div class="hero-icon">🥇</div>
+      </div>
+
+      <!-- الثلاثة الأوائل المنصة Podium -->
+      <div id="podium" class="podium-grid">
+        <div class="empty">جارٍ تحميل لوحة الشرف...</div>
+      </div>
+
+      <!-- جدول ترتيب العشرة الأوائل -->
+      <section class="card">
+        <div class="section-title">
+          <div>
+            <h2>ترتيب العشرة الأوائل (Top 10) للشهر الحالي</h2>
+            <p class="hint">يتم تحديث الترتيب تلقائياً بنسبة 50% حضور و 50% امتحانات.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>المركز</th>
+                <th>كود الطالب</th>
+                <th>اسم الطالب</th>
+                <th>المجموعة</th>
+                <th>نسبة الحضور (50%)</th>
+                <th>متوسط الامتحانات (50%)</th>
+                <th>التقييم الكلي</th>
+                <th>الملف</th>
+              </tr>
+            </thead>
+            <tbody id="topTableBody">
+              <tr><td colspan="8" class="empty">جارٍ حساب درجات الطلاب...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
