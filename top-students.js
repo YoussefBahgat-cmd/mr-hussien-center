@@ -97,10 +97,9 @@ async function loadTopStudents() {
           <h3>${second.student_name}</h3>
           <div class="podium-details">
             <span>المجموعة: <strong>${second.student_group}</strong></span>
-            <span>التقدير: <strong>${second.totalScore}%</strong></span>
+            <span>نسبة الحضور : <strong>${second.presenceRate} %</strong></span>
+            <span>نسبة الامتحان : <strong>${second.avgExam}%</strong></span>
           </div>
-          <div class="podium-score">${second.totalScore}%</div>
-          <small class="hint">حضور: ${second.presenceRate}% | امتحانات: ${second.avgExam}%</small>
         </div>
       `;
     } else {
@@ -116,10 +115,9 @@ async function loadTopStudents() {
           <h3>${first.student_name}</h3>
           <div class="podium-details">
             <span>المجموعة: <strong>${first.student_group}</strong></span>
-            <span>التقدير: <strong>${first.totalScore}%</strong></span>
+            <span>نسبة الحضور : <strong>${first.presenceRate} %</strong></span>
+            <span>نسبة الامتحان : <strong>${first.avgExam}%</strong></span>
           </div>
-          <div class="podium-score" style="color:#d97706">${first.totalScore}%</div>
-          <small class="hint">حضور: ${first.presenceRate}% | امتحانات: ${first.avgExam}%</small>
         </div>
       `;
     }
@@ -133,10 +131,9 @@ async function loadTopStudents() {
           <h3>${third.student_name}</h3>
           <div class="podium-details">
             <span>المجموعة: <strong>${third.student_group}</strong></span>
-            <span>التقدير: <strong>${third.totalScore}%</strong></span>
+            <span>نسبة الحضور : <strong>${third.presenceRate} %</strong></span>
+            <span>نسبة الامتحان : <strong>${third.avgExam}%</strong></span>
           </div>
-          <div class="podium-score">${third.totalScore}%</div>
-          <small class="hint">حضور: ${third.presenceRate}% | امتحانات: ${third.avgExam}%</small>
         </div>
       `;
     } else {
