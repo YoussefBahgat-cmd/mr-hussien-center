@@ -1757,3 +1757,148 @@ tr:hover td {
     justify-content: space-between;
   }
 }
+
+/* Mobile uses a separate dark palette while desktop stays light. */
+@media (max-width: 760px) {
+  :root {
+    --bg: #0b1620;
+    --bg-secondary: #102331;
+    --surface: #122433;
+    --surface-card: #152b3b;
+    --surface-hover: #1a3749;
+    --surface-glass: rgba(21, 43, 59, 0.92);
+    --ink: #f1f8f8;
+    --ink-secondary: #c7d9df;
+    --muted-text: #94b2bd;
+    --line: #294655;
+    --line-glow: rgba(45, 212, 191, 0.28);
+    --primary: #2dd4bf;
+    --primary-glow: rgba(45, 212, 191, 0.22);
+    --primary-gradient: linear-gradient(135deg, #0f766e, #0284c7);
+    --gold: #fbbf24;
+    --gold-glow: rgba(251, 191, 36, 0.22);
+    --cyan: #38bdf8;
+    --teal: #34d399;
+    --teal-glow: rgba(52, 211, 153, 0.22);
+    --red: #fb7185;
+    --card-shadow: 0 12px 28px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(148, 163, 184, 0.08);
+    --card-shadow-hover: 0 16px 34px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(45, 212, 191, 0.3);
+    --topbar-bg: linear-gradient(135deg, #102331 0%, #163548 100%);
+  }
+
+  body {
+    background-image:
+      radial-gradient(at 0% 0%, rgba(45, 212, 191, 0.14) 0, transparent 42%),
+      radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.12) 0, transparent 42%);
+  }
+
+  .brand-mark,
+  .sidebar-toggle-btn,
+  .theme-toggle-btn,
+  .sidebar-quick-btn,
+  .sidebar-close-btn {
+    background: #1b4254;
+    border-color: #326274;
+    color: var(--primary);
+  }
+
+  .nav a:hover,
+  .nav a.active,
+  .sidebar-link.active {
+    background: #1b4254;
+    border-color: #326274;
+    color: var(--primary);
+  }
+
+  .hero,
+  .student-dashboard-hero {
+    background: linear-gradient(135deg, #153c4b 0%, #142b3b 58%, #16354a 100%);
+    border-color: #326274;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
+  }
+
+  .hero p,
+  .quick small,
+  .stat span,
+  .sidebar-brand small,
+  .page-head p {
+    color: var(--muted-text);
+  }
+
+  .hero-icon,
+  .student-large-avatar {
+    background: linear-gradient(135deg, #0f766e, #0369a1);
+    border-color: #4b8795;
+  }
+
+  .card,
+  .quick,
+  .stat,
+  .kpi-card,
+  .exam-materials-card,
+  .payment-status-card,
+  .pdf-download-box,
+  .table-wrap,
+  .auth-card {
+    background: var(--surface-card);
+    border-color: var(--line);
+  }
+
+  .quick:nth-child(1),
+  .quick:nth-child(2),
+  .quick:nth-child(3),
+  .quick:nth-child(4),
+  .stat:not(.teal):not(.orange),
+  .stat.teal,
+  .stat.orange {
+    background: linear-gradient(145deg, #18394a, #152b3b 78%);
+    border-color: #326274;
+  }
+
+  .form input,
+  .form select,
+  .search,
+  .auth-form input,
+  .roster-score-input {
+    background: #0e202d;
+    border-color: #315363;
+    color: var(--ink);
+  }
+
+  th,
+  .payment-history-table th {
+    background: #102331;
+    color: var(--muted-text);
+  }
+
+  td,
+  .payment-history-table td,
+  .student-results-table td {
+    border-color: var(--line);
+  }
+
+  tr:hover td,
+  .top-rank-row td {
+    background: var(--surface-hover);
+  }
+
+  .sidebar-header {
+    background: linear-gradient(135deg, #153c4b 0%, #142b3b 100%);
+    border-color: var(--line);
+  }
+
+  .sidebar-backdrop,
+  .auth-modal-backdrop {
+    background: rgba(2, 8, 13, 0.76);
+  }
+
+  .scanner-box {
+    background: #0e202d;
+    border-color: #315363;
+  }
+
+  .privacy-notice {
+    background: #123d4c !important;
+    color: #99f6e4 !important;
+  }
+}
