@@ -51,7 +51,7 @@
             <span class="brand-mark">⚛️</span>
             <div>
               <span class="brand-text">سنتر مستر حسين</span>
-              <small style="display:block;font-size:0.7rem;color:#c7d2fe;font-weight:600;margin-top:-3px;">فيزياء الثانوية العامة</small>
+              <small style="display:block;font-size:0.7rem;color:#64748b;font-weight:600;margin-top:-3px;">فيزياء الثانوية العامة</small>
             </div>
           </a>
         </div>
